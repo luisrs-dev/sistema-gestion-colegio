@@ -1,0 +1,43 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}Alumno index{% endblock %}
+
+{% block titulo %}Lista Alumnos{% endblock %}
+
+{% block btnsRight %}
+
+<a href="{{ path('app_alumno_new') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+    <i class="fas fa-download fa-sm text-white-50"></i> Crear nuevo
+</a>
+
+<a href="{{ path('app_alumno_new') }}" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+    <i class="fas fa-download fa-sm text-white-50"></i> Descagrar PDF
+</a>
+
+
+{# <a class="btn btn-success btn-sm" href="{{ path('app_alumno_new') }}">Crear nuevo</a>
+<a class="btn btn-success btn-sm" href="{{ path('app_alumno_new') }}">Crear nuevo   </a> #}
+{% endblock %}
+
+{% block body %}
+   <div class="row">
+    <div class="col-12">
+
+
+        <div class="card">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Nuevo Alumno</h6>
+                </div>
+                <div class="card-body">
+                    {# <h1>Crear nuevo alumno</h1> #}
+
+                    {{ include('alumno/_form.html.twig') }}
+                
+                    <a href="{{ path('app_alumno_index') }}">back to list</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+{% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{{ asset('assets/dashboard/css/login.css') }}" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+    
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <img src="{{ asset('assets/dashboard/img/logo-f546.png') }}" id="icon" alt="User Icon" />
+        </div>
+    
+        <!-- Login Form -->
+        <form action="{{ path('app_login') }}" method="post">
+          <input type="text" id="username" name="_username" value="{{ last_username }}"  class="fadeIn second"  placeholder="Ingrese su RUT">
+          <input type="password" id="password" name="_password" class="fadeIn third" placeholder="Últimos 4 digitos de su RUT">
+          <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+          {% if error %}
+          <div class="text-danger">Usuario o contraseña incorrecto.</div>
+          {# <div class="text-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div> #}
+          {% endif %}
+
+
+          <input type="submit" class="fadeIn fourth" value="INGRESAR">
+
+        </form>
+    
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+          <a class="underlineHover" href="#">¿Olvido su clave?</a>
+        </div>
+    
+      </div>
+    </div>
+
+
+    {# <form action="{{ path('app_login') }}" method="post">
+        <label for="username">Email:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password">
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <input type="hidden" name="_target_path" value="/admin">
+
+        <button type="submit">login</button>
+    </form> #}
+
+
+</body>
+</html>
